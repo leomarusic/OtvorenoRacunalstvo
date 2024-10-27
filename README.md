@@ -45,3 +45,5 @@
 | next_stop      | Iduća stanica po redu                     | string      | 
 | previous_stop  | Prijašnja stanica po redu                 | string      | 
 | date_built     | Datum izgradnje stanice                   | date        | 
+
+*Note: date_built polje je izmišljeno kako bi bilo u skladu parametara za laboratorijsku vježbu*
