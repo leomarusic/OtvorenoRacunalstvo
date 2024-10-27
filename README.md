@@ -46,4 +46,4 @@
 | previous_stop  | Prijašnja stanica po redu                 | string      | 
 | date_built     | Datum izgradnje stanice                   | date        | 
 
-*Note: date_built polje je izmišljeno kako bi bilo u skladu parametara za laboratorijsku vježbu*
+*Note: date_built polje je izmišljeno kako bi bilo u skladu parametara za laboratorijsku vježbu, u tom polju se ne nalaze stvarni podaci.*
