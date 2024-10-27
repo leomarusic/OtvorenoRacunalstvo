@@ -29,6 +29,8 @@
 
 **Ključne riječi:** transport, tramvaj, geo-pozicija
 
+**Izvor podataka:** [zet.hr](https://www.zet.hr/odredbe/datoteke-u-gtfs-formatu/669)
+
 **CSV struktura:**
 | Stupac         | Opis                                      | Tip Podatka |
 |----------------|-------------------------------------------|-------------|
