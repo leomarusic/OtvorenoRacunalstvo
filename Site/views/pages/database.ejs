@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pretraga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/database.css">
+    <script defer src="scripts/database.js" type="module"></script>
+</head>
+<body>
+    <%- include ('../partials/header.ejs') %>
+    <main>
+        <div class="parameters">
+            <form id="parameterform" class="parametersform">
+                <label for="textInput"></label>
+                <input type="text" id="textInput" name="search" placeholder="Traži..">
+
+                <label for="dropdown"></label>
+                <select id="dropdown" name="field" required>
+                    <option value="all">Sva polja</option>
+                    <option value="name">Ime stanice</option>
+                    <option value="description">Opis stanice</option>
+                    <option value="line">Broj linije</option>
+                </select>
+
+                <button type="submit">Pretraži</button>
+            </form>
+            <div class="downloadbuttons">
+                <button id="downloadCSV">Preuzmi CSV</button>
+                <button id="downloadJSON">Preuzmi JSON</button>
+            </div>
+        </div>
+        <br>
+        <div id="searchresult" class="results">
+
+        </div>
+    </main>
+    <%- include ('../partials/footer.ejs') %>
+</body>
+</html>

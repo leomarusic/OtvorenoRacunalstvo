@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tramvajske stanice</title>
+    <meta name="description" content="Podaci o tramvajskim stanicama i tramvajima koji prolaze njima. Uključujući ime stanice, smjer, geografska pozicija, prijašnja i sljedeća stanica, popis linija koje prolaze i datum izgradnje">
+    <meta name="keywords" content="transport, tramvaj, stanica, preuzimanje, podaci">
+    <meta name="author" content="Leo Marušić">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Croatian">
+    <meta name="license" content="GPL-3">
+    <meta name="organization" content="Fakultet Elektrotehnike i Računalstva, Zagreb">
+    <meta name="version" content="2.0">
+    <meta name="source" content="https://www.zet.hr/odredbe/datoteke-u-gtfs-formatu/669">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <script defer src="scripts/index.js" type="module"></script>
+</head>
+<body>
+    <%- include ('../partials/header.ejs') %>
+    <main>
+        <div>
+            <h2>Preuzimanje podataka</h2>
+            <p>Preuzmite podatke o tramvajskim stanicama u formatu CSV ili JSON klikom na gumbe dolje.</p>
+            <p>
+                U njima se nalaze podaci o tramvajskim stanicama i tramvajima koji prolaze njima. Uključujući ime
+                stanice, smjer, geografska pozicija, prijašnja i sljedeća stanica, popis linija koje prolaze i
+                    datum izgradnje.
+            </p>
+        </div>
+        <a href="files/tram_stops.csv" download>
+            <button class="downloadbutton">Preuzmi CSV</button>
+        </a>
+        <a href="files/tram_stops.json" download>
+            <button class="downloadbutton">Preuzmi JSON</button>
+        </a>
+    </main>
+    <%- include ('../partials/footer.ejs') %>
+</body>
+</html>
