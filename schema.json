@@ -1,0 +1,548 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "OR Tramvajske stanice",
+    "required": [
+        "tram_stops"
+    ],
+    "properties": {
+        "tram_stops": {
+            "type": "array",
+            "default": [],
+            "title": "Tramvajska stanica",
+            "items": {
+                "type": "object",
+                "title": "Detalji tramvajske stanice",
+                "required": [
+                    "id",
+                    "name",
+                    "lines",
+                    "description",
+                    "coordinateX",
+                    "coordinateY",
+                    "next_stop",
+                    "previous_stop",
+                    "date_built"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "ID stanice",
+                        "examples": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Ime stanice",
+                        "examples": [
+                            "Ivanićgradska - jug",
+                            "Ivanićgradska - sjever",
+                            "Jagićeva - sjever",
+                            "Jarun - jug",
+                            "Jarun - sjever",
+                            "Jordanovac - jug",
+                            "Jordanovac - sjever",
+                            "Kapucinska - jug"
+                        ]
+                    },
+                    "lines": {
+                        "type": "array",
+                        "title": "Prolazeće linije",
+                        "items": {
+                            "type": "object",
+                            "title": "Informacije o linijama",
+                            "required": [
+                                "number",
+                                "route"
+                            ],
+                            "properties": {
+                                "number": {
+                                    "type": "integer",
+                                    "title": "Broj linije",
+                                    "examples": [
+                                        2,
+                                        3,
+                                        13,
+                                        5,
+                                        17,
+                                        4,
+                                        7,
+                                        11,
+                                        12,
+                                        8
+                                    ]
+                                },
+                                "route": {
+                                    "type": "string",
+                                    "title": "Ruta linije",
+                                    "examples": [
+                                        "ČRNOMEREC - ŽITNJAK",
+                                        "LJUBLJANICA - SAVIŠĆE",
+                                        "ŽITNJAK - KVATERNIKOV TRG",
+                                        "PREČKO - PARK MAKSIMIR",
+                                        "PREČKO - BORONGAJ",
+                                        "SAVSKI MOST - DUBEC"
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "number": 2,
+                                "route": "ČRNOMEREC - ŽITNJAK"
+                            },
+                            {
+                                "number": 3,
+                                "route": "LJUBLJANICA - SAVIŠĆE"
+                            },
+                            {
+                                "number": 13,
+                                "route": "ŽITNJAK - KVATERNIKOV TRG"
+                            },
+                            {
+                                "number": 2,
+                                "route": "ČRNOMEREC - ŽITNJAK"
+                            },
+                            {
+                                "number": 3,
+                                "route": "LJUBLJANICA - SAVIŠĆE"
+                            }]
+                        },
+                        "examples": [
+                            [{
+                                "number": 2,
+                                "route": "ČRNOMEREC - ŽITNJAK"
+                            },
+                            {
+                                "number": 3,
+                                "route": "LJUBLJANICA - SAVIŠĆE"
+                            },
+                            {
+                                "number": 13,
+                                "route": "ŽITNJAK - KVATERNIKOV TRG"
+                            }],
+                            [{
+                                "number": 2,
+                                "route": "ČRNOMEREC - ŽITNJAK"
+                            },
+                            {
+                                "number": 3,
+                                "route": "LJUBLJANICA - SAVIŠĆE"
+                            },
+                            {
+                                "number": 13,
+                                "route": "ŽITNJAK - KVATERNIKOV TRG"
+                            }]
+                        ]
+                    },
+                    "description": {
+                        "type": "string",
+                        "title": "Smjer stanice",
+                        "examples": [
+                            "smjer Žitnjak",
+                            "smjer Av.Marina Držića",
+                            "smjer Črnomerec",
+                            "smjer Savska cesta",
+                            "smjer Prečko",
+                            "smjer Dubrava\\Dubec",
+                            "smjer Dubrava\\Mihaljevac",
+                            "smjer Glavni kolodvor\\Autobusni kolodvor"
+                        ]
+                    },
+                    "note": {
+                        "type": "string",
+                        "title": "Dodatne informacije",
+                        "examples": [
+                            "",
+                            "Linije 5 i 12 prometuju do okretišta Dubrava",
+                            "Linije 4 i 34 smjer Dubec, linije 8 i 33 smjer Mihaljevac",
+                            "Linije 4, 34 i 33 smjer Glavni kolodvor, linija 8 smjer Zapruđe",
+                            "Linije 5 i 7 prometuju prema Autobusnom kolodvoru",
+                            "Linija 12 prometuje do okretišta Dubrava, linije 4, 11 i 34 smjer Dubec"
+                        ]
+                    },
+                    "coordinateX": {
+                        "type": "number",
+                        "title": "X koordinata",
+                        "examples": [
+                            16.019859999000062,
+                            16.020663,
+                            15.957463,
+                            15.920564,
+                            15.920061,
+                            16.008053001000064,
+                            16.00761,
+                            16.048630001000049
+                        ]
+                    },
+                    "coordinateY": {
+                        "type": "number",
+                        "title": "Y koordinata",
+                        "examples": [
+                            45.803849999000079,
+                            45.804053999000075,
+                            45.809067999000035,
+                            45.789575999000078,
+                            45.789908999000033,
+                            45.817578999000034,
+                            45.817631999000071,
+                            45.827543999000056
+                        ]
+                    },
+                    "next_stop": {
+                        "type": "string",
+                        "title": "Sljedeća stanica",
+                        "examples": [
+                            "Ferenščica",
+                            "Donje Svetice",
+                            "Adžijina",
+                            "Srednjaci",
+                            "Hrvatskog sokola",
+                            "Park Maksimir",
+                            "Mašićeva",
+                            "Grižanska"
+                        ]
+                    },
+                    "previous_stop": {
+                        "type": "string",
+                        "title": "Prijašnja stanica",
+                        "examples": [
+                            "Donje Svetice",
+                            "Ferenšćica",
+                            "Talovčeva",
+                            "Hrvatskog sokola",
+                            "Srednjaci",
+                            "Mašićeva",
+                            "Park Maksimir",
+                            "Ljubijska"
+                        ]
+                    },
+                    "date_built": {
+                        "type": "string",
+                        "title": "Datum izgradnje",
+                        "examples": [
+                            "15.02.2002.",
+                            "16.02.2002.",
+                            "06.01.2003.",
+                            "09.12.2002.",
+                            "06.12.2002.",
+                            "22.05.2000."
+                        ]
+                    }
+                },
+                "examples": [{
+                    "id": 1,
+                    "name": "Ivanićgradska - jug",
+                    "lines": [{
+                        "number": 2,
+                        "route": "ČRNOMEREC - ŽITNJAK"
+                    },
+                    {
+                        "number": 3,
+                        "route": "LJUBLJANICA - SAVIŠĆE"
+                    },
+                    {
+                        "number": 13,
+                        "route": "ŽITNJAK - KVATERNIKOV TRG"
+                    }],
+                    "description": "smjer Žitnjak",
+                    "note": "",
+                    "coordinateX": 16.019859999000062,
+                    "coordinateY": 45.803849999000079,
+                    "next_stop": "Ferenščica",
+                    "previous_stop": "Donje Svetice",
+                    "date_built": "15.02.2002."
+                },
+                {
+                    "id": 2,
+                    "name": "Ivanićgradska - sjever",
+                    "lines": [{
+                        "number": 2,
+                        "route": "ČRNOMEREC - ŽITNJAK"
+                    },
+                    {
+                        "number": 3,
+                        "route": "LJUBLJANICA - SAVIŠĆE"
+                    },
+                    {
+                        "number": 13,
+                        "route": "ŽITNJAK - KVATERNIKOV TRG"
+                    }],
+                    "description": "smjer Av.Marina Držića",
+                    "note": "",
+                    "coordinateX": 16.020663,
+                    "coordinateY": 45.804053999000075,
+                    "next_stop": "Donje Svetice",
+                    "previous_stop": "Ferenšćica",
+                    "date_built": "16.02.2002."
+                },
+                {
+                    "id": 3,
+                    "name": "Jagićeva - sjever",
+                    "lines": [{
+                        "number": 2,
+                        "route": "ČRNOMEREC - ŽITNJAK"
+                    }],
+                    "description": "smjer Črnomerec",
+                    "note": "",
+                    "coordinateX": 15.957463,
+                    "coordinateY": 45.809067999000035,
+                    "next_stop": "Adžijina",
+                    "previous_stop": "Talovčeva",
+                    "date_built": "06.01.2003."
+                },
+                {
+                    "id": 4,
+                    "name": "Jarun - jug",
+                    "lines": [{
+                        "number": 5,
+                        "route": "PREČKO - PARK MAKSIMIR"
+                    },
+                    {
+                        "number": 17,
+                        "route": "PREČKO - BORONGAJ"
+                    }],
+                    "description": "smjer Savska cesta",
+                    "note": "",
+                    "coordinateX": 15.920564,
+                    "coordinateY": 45.789575999000078,
+                    "next_stop": "Srednjaci",
+                    "previous_stop": "Hrvatskog sokola",
+                    "date_built": "09.12.2002."
+                },
+                {
+                    "id": 5,
+                    "name": "Jarun - sjever",
+                    "lines": [{
+                        "number": 5,
+                        "route": "PREČKO - PARK MAKSIMIR"
+                    },
+                    {
+                        "number": 17,
+                        "route": "PREČKO - BORONGAJ"
+                    }],
+                    "description": "smjer Prečko",
+                    "note": "",
+                    "coordinateX": 15.920061,
+                    "coordinateY": 45.789908999000033,
+                    "next_stop": "Hrvatskog sokola",
+                    "previous_stop": "Srednjaci",
+                    "date_built": "06.12.2002."
+                },
+                {
+                    "id": 10,
+                    "name": "Klinika za traumatologiju - istok",
+                    "lines": [{
+                        "number": 4,
+                        "route": "SAVSKI MOST - DUBEC"
+                    },
+                    {
+                        "number": 8,
+                        "route": "KVATERNIKOV TRG - ZAPRUĐE"
+                    }],
+                    "description": "smjer Dubrava\\Mihaljevac",
+                    "note": "Linije 4 i 34 smjer Dubec, linije 8 i 33 smjer Mihaljevac",
+                    "coordinateX": 15.98373900100006,
+                    "coordinateY": 45.810451999000065,
+                    "next_stop": "Draškovićeva",
+                    "previous_stop": "Sheraton",
+                    "date_built": "29.03.2001."
+                },
+                {
+                    "id": 11,
+                    "name": "Klinika za traumatologiju - zapad",
+                    "lines": [{
+                        "number": 4,
+                        "route": "SAVSKI MOST - DUBEC"
+                    },
+                    {
+                        "number": 8,
+                        "route": "KVATERNIKOV TRG - ZAPRUĐE"
+                    }],
+                    "description": "smjer Glavni kolodvor\\Autobusni kolodvor",
+                    "note": "Linije 4, 34 i 33 smjer Glavni kolodvor, linija 8 smjer Zapruđe",
+                    "coordinateX": 15.983587999000065,
+                    "coordinateY": 45.810075999000048,
+                    "next_stop": "Sheraton",
+                    "previous_stop": "Draškovićeva",
+                    "date_built": "31.03.2001."
+                },
+                {
+                    "id": 17,
+                    "name": "Kvaternikov trg ulaz/izlaz - istok",
+                    "lines": [{
+                        "number": 13,
+                        "route": "ŽITNJAK - KVATERNIKOV TRG"
+                    }],
+                    "description": "smjer Trg bana Josipa Jelačića",
+                    "note": "",
+                    "coordinateX": 15.997355001000074,
+                    "coordinateY": 45.814884999000071,
+                    "next_stop": "Tržnica Kvatrić",
+                    "previous_stop": "Šubićeva",
+                    "date_built": "11.11.2000."
+                },
+                {
+                    "id": 18,
+                    "name": "Kvaternikov trg - jug",
+                    "lines": [{
+                        "number": 4,
+                        "route": "SAVSKI MOST - DUBEC"
+                    },
+                    {
+                        "number": 11,
+                        "route": "ČRNOMEREC - DUBEC"
+                    },
+                    {
+                        "number": 12,
+                        "route": "LJUBLJANICA - DUBRAVA"
+                    }],
+                    "description": "smjer Dubrava\\Dubec",
+                    "note": "Linija 12 prometuje do okretišta Dubrava, linije 4, 11 i 34 smjer Dubec",
+                    "coordinateX": 15.99699,
+                    "coordinateY": 45.814917999000045,
+                    "next_stop": "Mašićeva",
+                    "previous_stop": "Petrova",
+                    "date_built": "11.11.2000."
+                },
+                {
+                    "id": 19,
+                    "name": "Lisinski - jug",
+                    "lines": [{
+                        "number": 3,
+                        "route": "LJUBLJANICA - HEINZELOVA"
+                    },
+                    {
+                        "number": 5,
+                        "route": "PREČKO - PARK MAKSIMIR"
+                    },
+                    {
+                        "number": 13,
+                        "route": "ŽITNJAK - KVATERNIKOV TRG"
+                    }],
+                    "description": "smjer Av. Marina Držića",
+                    "note": "",
+                    "coordinateX": 15.980155001000071,
+                    "coordinateY": 45.800270999000077,
+                    "next_stop": "Kruge",
+                    "previous_stop": "Miramarska",
+                    "date_built": "27.07.1999."
+                },
+                {
+                    "id": 20,
+                    "name": "Lisinski - sjever",
+                    "lines": [{
+                        "number": 3,
+                        "route": "LJUBLJANICA - HEINZELOVA"
+                    },
+                    {
+                        "number": 5,
+                        "route": "PREČKO - PARK MAKSIMIR"
+                    },
+                    {
+                        "number": 13,
+                        "route": "ŽITNJAK - KVATERNIKOV TRG"
+                    }],
+                    "description": "smjer Savska cesta",
+                    "note": "",
+                    "coordinateX": 15.977874,
+                    "coordinateY": 45.800237999000046,
+                    "next_stop": "Miramarska",
+                    "previous_stop": "Kruge",
+                    "date_built": "28.07.1999."
+                }]
+        }
+    },
+    "examples": [{
+        "tram_stops": [{
+            "id": 1,
+            "name": "Ivanićgradska - jug",
+            "lines": [{
+                "number": 2,
+                "route": "ČRNOMEREC - ŽITNJAK"
+            },
+            {
+                "number": 3,
+                "route": "LJUBLJANICA - SAVIŠĆE"
+            },
+            {
+                "number": 13,
+                "route": "ŽITNJAK - KVATERNIKOV TRG"
+            }],
+            "description": "smjer Žitnjak",
+            "note": "",
+            "coordinateX": 16.019859999000062,
+            "coordinateY": 45.803849999000079,
+            "next_stop": "Ferenščica",
+            "previous_stop": "Donje Svetice",
+            "date_built": "15.02.2002."
+        },
+        {
+            "id": 2,
+            "name": "Ivanićgradska - sjever",
+            "lines": [{
+                "number": 2,
+                "route": "ČRNOMEREC - ŽITNJAK"
+            },
+            {
+                "number": 3,
+                "route": "LJUBLJANICA - SAVIŠĆE"
+            },
+            {
+                "number": 13,
+                "route": "ŽITNJAK - KVATERNIKOV TRG"
+            }],
+            "description": "smjer Av.Marina Držića",
+            "note": "",
+            "coordinateX": 16.020663,
+            "coordinateY": 45.804053999000075,
+            "next_stop": "Donje Svetice",
+            "previous_stop": "Ferenšćica",
+            "date_built": "16.02.2002."
+        },
+        {
+            "id": 3,
+            "name": "Jagićeva - sjever",
+            "lines": [{
+                "number": 2,
+                "route": "ČRNOMEREC - ŽITNJAK"
+            }],
+            "description": "smjer Črnomerec",
+            "note": "",
+            "coordinateX": 15.957463,
+            "coordinateY": 45.809067999000035,
+            "next_stop": "Adžijina",
+            "previous_stop": "Talovčeva",
+            "date_built": "06.01.2003."
+        },
+        {
+            "id": 4,
+            "name": "Jarun - jug",
+            "lines": [{
+                "number": 5,
+                "route": "PREČKO - PARK MAKSIMIR"
+            },
+            {
+                "number": 17,
+                "route": "PREČKO - BORONGAJ"
+            }],
+            "description": "smjer Savska cesta",
+            "note": "",
+            "coordinateX": 15.920564,
+            "coordinateY": 45.789575999000078,
+            "next_stop": "Srednjaci",
+            "previous_stop": "Hrvatskog sokola",
+            "date_built": "09.12.2002."
+        }]
+    }]
+    }
+}
