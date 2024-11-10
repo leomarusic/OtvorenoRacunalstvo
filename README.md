@@ -25,7 +25,7 @@
 
 **Jezik:** Hrvatski
 
-**Opis:** Podaci o tramvajskim stanicama i tramvajima koji porlaze njima. Uklučujući ime stanice, smjer, geografska pozicija, prijašnja i sljedeća stanica, popis linija koje prolaze i datum izgradnje
+**Opis:** Podaci o tramvajskim stanicama i tramvajima koji prolaze njima. Uključujući ime stanice, smjer, geografska pozicija, prijašnja i sljedeća stanica, popis linija koje prolaze i datum izgradnje
 
 **Ključne riječi:** transport, tramvaj, geo-pozicija
 
