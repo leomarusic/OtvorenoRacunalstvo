@@ -1,8 +1,11 @@
 <link rel="stylesheet" href="styles/header.css">
+<script src="scripts/header.js" defer></script>
 <header class="navbar">
     <h1>Tramvajske stanice</h1>
     <nav>
         <a href="/">Početna</a>
         <a href="/search">Pretraga</a>
+        <a id="login" class="user" href="/login">Prijava</a>
+        <a id="profile" class="user" href="/user"><%= userName %></a>
     </nav>
 </header>

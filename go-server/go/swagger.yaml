@@ -1,0 +1,901 @@
+openapi: 3.0.0
+info:
+  title: Tramvajske stanice
+  description: >-
+    API napravljen u sklopu 3. laboratorijske vježbe za predmet Otvoreno
+    Računalstvo. Definira operacije koje nude mogućnosti manipuliranja skupa
+    podataka o tramvajskim stanicama.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+  - url: http://localhost:3000
+tags:
+  - name: station
+    description: Sve o tramvajskim stanicama
+  - name: tram
+    description: Sve o tramvajima
+paths:
+  /stations:
+    get:
+      tags:
+        - station
+      summary: Dohvaća podatke o tramvajskim stanicama.
+      description: >-
+        Podaci o tramvajskim stanicama i tramvajima koji prolaze njima.
+        Uključujući ime stanice, smjer, geografska pozicija, prijašnja i
+        sljedeća stanica, popis linija koje prolaze i datum izgradnje.
+      operationId: ''
+      responses:
+        '200':
+          description: Uspješno dohvaćeni podatci.
+          content:
+            application/json:
+              examples:
+                Sve stanice:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Fetched tram data",
+                      "response": {
+                        "stations": [
+                          {
+                            "stationID": 1,
+                            "name": "Ivanićgradska - jug",
+                            "description": "smjer Žitnjak",
+                            "note": "",
+                            "coordinateX": 16.01986,
+                            "coordinateY": 45.80385,
+                            "nextStop": "Ferenščica",
+                            "previousStop": "Donje Svetice",
+                            "dateBuilt": "2002-02-15T00:00:00Z"
+                          },
+                          {
+                            "stationID": 2,
+                            "name": "Ivanićgradska - sjever",
+                            "description": "smjer Av.Marina Držića",
+                            "note": "",
+                            "coordinateX": 16.020662,
+                            "coordinateY": 45.804054,
+                            "nextStop": "Donje Svetice",
+                            "previousStop": "Ferenšćica",
+                            "dateBuilt": "2002-02-16T00:00:00Z"
+                          },
+                          {
+                            "stationID": 3,
+                            "name": "Jagićeva - sjever",
+                            "description": "smjer Črnomerec",
+                            "note": "",
+                            "coordinateX": 15.957463,
+                            "coordinateY": 45.809067,
+                            "nextStop": "Adžijina",
+                            "previousStop": "Talovčeva",
+                            "dateBuilt": "2003-01-06T00:00:00Z"
+                          },
+                          {
+                            "stationID": 4,
+                            "name": "Jarun - jug",
+                            "description": "smjer Savska cesta",
+                            "note": "",
+                            "coordinateX": 15.920564,
+                            "coordinateY": 45.789577,
+                            "nextStop": "Srednjaci",
+                            "previousStop": "Hrvatskog sokola",
+                            "dateBuilt": "2002-12-09T00:00:00Z"
+                          },
+                          {
+                            "stationID": 5,
+                            "name": "Jarun - sjever",
+                            "description": "smjer Prečko",
+                            "note": "",
+                            "coordinateX": 15.920061,
+                            "coordinateY": 45.78991,
+                            "nextStop": "Hrvatskog sokola",
+                            "previousStop": "Srednjaci",
+                            "dateBuilt": "2002-12-06T00:00:00Z"
+                          },
+                          {
+                            "stationID": 6,
+                            "name": "Jordanovac - jug",
+                            "description": "smjer Dubrava\\Dubec",
+                            "note": "Linije 5 i 12 prometuju do okretišta Dubrava",
+                            "coordinateX": 16.008053,
+                            "coordinateY": 45.817577,
+                            "nextStop": "Park Maksimir",
+                            "previousStop": "Mašićeva",
+                            "dateBuilt": "2000-05-22T00:00:00Z"
+                          },
+                          {
+                            "stationID": 7,
+                            "name": "Jordanovac - sjever",
+                            "description": "smjer Kvaternikov trg",
+                            "note": "",
+                            "coordinateX": 16.00761,
+                            "coordinateY": 45.81763,
+                            "nextStop": "Mašićeva",
+                            "previousStop": "Park Maksimir",
+                            "dateBuilt": "2000-05-27T00:00:00Z"
+                          },
+                          {
+                            "stationID": 8,
+                            "name": "Kapucinska - jug",
+                            "description": "smjer Dubec",
+                            "note": "",
+                            "coordinateX": 16.04863,
+                            "coordinateY": 45.827545,
+                            "nextStop": "Grižanska",
+                            "previousStop": "Ljubijska",
+                            "dateBuilt": "2000-08-17T00:00:00Z"
+                          },
+                          {
+                            "stationID": 9,
+                            "name": "Kapucinska - sjever",
+                            "description": "smjer Kvaternikov trg",
+                            "note": "",
+                            "coordinateX": 16.048231,
+                            "coordinateY": 45.827583,
+                            "nextStop": "Ljubijska",
+                            "previousStop": "Grižanska",
+                            "dateBuilt": "2000-08-15T00:00:00Z"
+                          },
+                          {
+                            "stationID": 10,
+                            "name": "Klinika za traumatologiju - istok",
+                            "description": "smjer Dubrava\\Mihaljevac",
+                            "note": "Linije 4 i 34 smjer Dubec, linije 8 i 33 smjer Mihaljevac",
+                            "coordinateX": 15.983739,
+                            "coordinateY": 45.81045,
+                            "nextStop": "Draškovićeva",
+                            "previousStop": "Sheraton",
+                            "dateBuilt": "2001-03-29T00:00:00Z"
+                          },
+                          {
+                            "stationID": 11,
+                            "name": "Klinika za traumatologiju - zapad",
+                            "description": "smjer Glavni kolodvor\\Autobusni kolodvor",
+                            "note": "Linije 4, 34 i 33 smjer Glavni kolodvor, linija 8 smjer Zapruđe",
+                            "coordinateX": 15.983588,
+                            "coordinateY": 45.810078,
+                            "nextStop": "Sheraton",
+                            "previousStop": "Draškovićeva",
+                            "dateBuilt": "2001-03-31T00:00:00Z"
+                          },
+                          {
+                            "stationID": 12,
+                            "name": "Knežija - jug",
+                            "description": "smjer Savska cesta",
+                            "note": "",
+                            "coordinateX": 15.945352,
+                            "coordinateY": 45.78814,
+                            "nextStop": "Horvati",
+                            "previousStop": "St. dom S. Radić",
+                            "dateBuilt": "1999-05-14T00:00:00Z"
+                          },
+                          {
+                            "stationID": 13,
+                            "name": "Knežija - sjever",
+                            "description": "smjer Prečko",
+                            "note": "",
+                            "coordinateX": 15.944696,
+                            "coordinateY": 45.788235,
+                            "nextStop": "St. dom S. Radić",
+                            "previousStop": "Horvati",
+                            "dateBuilt": "1999-05-15T00:00:00Z"
+                          },
+                          {
+                            "stationID": 14,
+                            "name": "Kruge - jug",
+                            "description": "smjer Av. Marina Držića",
+                            "note": "",
+                            "coordinateX": 15.984915,
+                            "coordinateY": 45.80053,
+                            "nextStop": "Strojarska",
+                            "previousStop": "Lisinski",
+                            "dateBuilt": "2000-06-17T00:00:00Z"
+                          },
+                          {
+                            "stationID": 15,
+                            "name": "Kruge - sjever",
+                            "description": "smjer Savska cesta",
+                            "note": "",
+                            "coordinateX": 15.985475,
+                            "coordinateY": 45.800617,
+                            "nextStop": "Lisinski",
+                            "previousStop": "Strojarska",
+                            "dateBuilt": "2000-06-15T00:00:00Z"
+                          },
+                          {
+                            "stationID": 16,
+                            "name": "Kvaternikov trg - sjever",
+                            "description": "smjer Trg Josipa Jelačića/Autobusni kolodvor",
+                            "note": "Linije 5 i 7 prometuju prema Autobusnom kolodvoru",
+                            "coordinateX": 15.997642,
+                            "coordinateY": 45.81533,
+                            "nextStop": "Petrova",
+                            "previousStop": "Mašićeva",
+                            "dateBuilt": "2000-11-11T00:00:00Z"
+                          },
+                          {
+                            "stationID": 17,
+                            "name": "Kvaternikov trg ulaz/izlaz - istok",
+                            "description": "smjer Trg bana Josipa Jelačića",
+                            "note": "",
+                            "coordinateX": 15.997355,
+                            "coordinateY": 45.814884,
+                            "nextStop": "Tržnica Kvatrić",
+                            "previousStop": "Šubićeva",
+                            "dateBuilt": "2000-11-11T00:00:00Z"
+                          },
+                          {
+                            "stationID": 18,
+                            "name": "Kvaternikov trg - jug",
+                            "description": "smjer Dubrava\\Dubec",
+                            "note": "Linija 12 prometuje do okretišta Dubrava, linije 4, 11 i 34 smjer Dubec",
+                            "coordinateX": 15.99699,
+                            "coordinateY": 45.81492,
+                            "nextStop": "Mašićeva",
+                            "previousStop": "Petrova",
+                            "dateBuilt": "2000-11-11T00:00:00Z"
+                          },
+                          {
+                            "stationID": 19,
+                            "name": "Lisinski - jug",
+                            "description": "smjer Av. Marina Držića",
+                            "note": "",
+                            "coordinateX": 15.980155,
+                            "coordinateY": 45.80027,
+                            "nextStop": "Kruge",
+                            "previousStop": "Miramarska",
+                            "dateBuilt": "1999-07-27T00:00:00Z"
+                          },
+                          {
+                            "stationID": 20,
+                            "name": "Lisinski - sjever",
+                            "description": "smjer Savska cesta",
+                            "note": "",
+                            "coordinateX": 15.977874,
+                            "coordinateY": 45.80024,
+                            "nextStop": "Miramarska",
+                            "previousStop": "Kruge",
+                            "dateBuilt": "1999-07-28T00:00:00Z"
+                          }
+                        ]
+                      }
+                    }
+        default:
+          description: Default error sample response
+    post:
+      tags:
+        - station
+      summary: Dodavanje nove tramvajske stanice.
+      description: Dodavanje nove tramvajske stanice u postojeći skup podataka.
+      operationId: ''
+      responses:
+        default:
+          description: Default error sample response
+  /trams:
+    get:
+      tags:
+        - tram
+      summary: Dohvaćanje liste svih tramvaja.
+      description: >-
+        Lista tramvaja koja uključuje ID tramvaja i rutu kojom taj tramvaj
+        prolazi.
+      operationId: ''
+      responses:
+        '200':
+          description: Uspješan dohvatak podataka.
+          content:
+            application/json:
+              examples:
+                Svi tramvaji:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Fetched tram data",
+                      "response": {
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        "name": "Zagrebački tramvaji",
+                        "itemListElement": [
+                          {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 1,
+                              "name": "ZAPADNI KOLODVOR - BORONGAJ",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 2,
+                              "name": "ČRNOMEREC - ŽITNJAK",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 3,
+                              "name": "LJUBLJANICA - HEINZELOVA",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 4,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 4,
+                              "name": "SAVSKI MOST - DUBEC",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 5,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 5,
+                              "name": "PREČKO - PARK MAKSIMIR",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 6,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 6,
+                              "name": "ČRNOMEREC - SOPOT",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 7,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 7,
+                              "name": "ARENA ZAGREB - DUBRAVA",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 8,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 8,
+                              "name": "KVATERNIKOV TRG - ZAPRUĐE",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 9,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 9,
+                              "name": "LJUBLJANICA - BORONGAJ",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 10,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 11,
+                              "name": "ČRNOMEREC - DUBEC",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 11,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 12,
+                              "name": "LJUBLJANICA - DUBRAVA",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 12,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 13,
+                              "name": "ŽITNJAK - KVATERNIKOV TRG",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 13,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 14,
+                              "name": "TRG ŽRTAVA FAŠIZMA - SAVSKI MOST",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 14,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 17,
+                              "name": "PREČKO - BORONGAJ",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+        default:
+          description: Default error sample response
+    post:
+      tags:
+        - tram
+      summary: Dodavanje novog tramvaja.
+      description: Dodavanje novog tramvaja u postojeći skup podataka.
+      operationId: ''
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTramRequest'
+      responses:
+        '201':
+          description: Uspješno kreiran novi tramvaj.
+          content:
+            application/json:
+              examples:
+                Kreiranje novog tramvaja:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Created tram object",
+                      "response": {
+                        "lineID": 77,
+                        "route": "VRLO - KUL"
+                      }
+                    }
+        default:
+          description: Default error sample response
+  /stations/{id}:
+    get:
+      tags:
+        - station
+      summary: Dohvaća podatke o tramvajskim stanicama.
+      description: >-
+        Podaci o tramvajskim stanicama i tramvajima koji prolaze njima.
+        Uključujući ime stanice, smjer, geografska pozicija, prijašnja i
+        sljedeća stanica, popis linija koje prolaze i datum izgradnje.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID stanice
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Uspješno dohvaćena tramvajska stanica
+          content:
+            application/json:
+              examples:
+                Dohvaćene informacije o stanici:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Fetched station data",
+                      "response": {
+                        "stations": [
+                          {
+                            "id": 3,
+                            "name": "Jagićeva - sjever",
+                            "description": "smjer Črnomerec",
+                            "note": "",
+                            "coordinateX": 15.957463,
+                            "coordinateY": 45.809067,
+                            "nextStop": "Adžijina",
+                            "previousStop": "Talovčeva",
+                            "dateBuilt": "2003-01-06T00:00:00Z"
+                          }
+                        ]
+                      }
+                    }
+        '404':
+          description: Tramvajska stanica nije pronađena
+          content:
+            application/json:
+              examples:
+                Nepostojeća stanica:
+                  value: |-
+                    {
+                      "status": "NOT FOUND",
+                      "message": "Station with specified ID not found",
+                      "response": {
+                        "stations": null
+                      }
+                    }
+        default:
+          description: Default error sample response
+    put:
+      tags:
+        - station
+      summary: Ažuriranje postojeće tramvajske stanice.
+      description: Ažuriranje postojeće tramvajske stanice u postojećem skupu podataka.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID stanice
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        default:
+          description: Default error sample response
+    delete:
+      tags:
+        - station
+      summary: Brisanje postojeće tramvajske stanice.
+      description: Brisanje postojeće tramvajske stanice iz postojećeg skupa podataka.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID stanice
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        default:
+          description: Default error sample response
+  /trams/{id}:
+    get:
+      tags:
+        - tram
+      summary: Dohvaćanje rute tramvaja
+      description: Informacije o ruti kojom tramvaj prolazi zadan preko ID.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID tramvaja
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Vraća rutu kojom zadani tramvaj prolazi.
+          content:
+            application/json:
+              examples:
+                Dobi rutu tramvaja 13.:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Fetched tram data",
+                      "response": {
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        "name": "Zagrebački tramvaj",
+                        "itemListElement": [
+                          {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "item": {
+                              "@type": "BusTrip",
+                              "identifier": 13,
+                              "name": "ŽITNJAK - KVATERNIKOV TRG",
+                              "provider": {
+                                "@type": "Organization",
+                                "name": "ZET"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+        default:
+          description: Default error sample response
+    put:
+      tags:
+        - tram
+      summary: Ažuriranje postojećeg tramvaja.
+      description: Ažuriranje postojećeg tramvaja u postojećem skupu podataka.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID tramvaja
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTramRequest'
+      responses:
+        '200':
+          description: Informacije o tramvaju uspješno ažuriranje
+          content:
+            application/json:
+              examples:
+                Promjena informacija o tramvaju:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Updated tram object",
+                      "response": {
+                        "old": {
+                          "lineID": 77,
+                          "route": "VRLO - KUL"
+                        },
+                        "new": {
+                          "lineID": 99,
+                          "route": "VRLO - Dobro"
+                        }
+                      }
+                    }
+        default:
+          description: Default error sample response
+    delete:
+      tags:
+        - tram
+      summary: Brisanje postojećeg tramvaja.
+      description: Brisanje postojećeg tramvaja iz postojećeg skupa podataka.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID tramvaja
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Uspješno izbrisan postojeći tramvaj.
+          content:
+            application/json:
+              examples:
+                Brisanje tramvaja:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Deleted tram object",
+                      "response": {
+                        "lineID": 77,
+                        "route": "VRLO - KUL"
+                      }
+                    }
+        '404':
+          description: Nije pronađen tramvaj sa danim ID
+          content:
+            application/json:
+              examples:
+                Nepostojeći tramvaj:
+                  value: |-
+                    {
+                      "status": "NOT FOUND",
+                      "message": "Tram with specified ID not found",
+                      "response": {}
+                    }
+        default:
+          description: Default error sample response
+  /stations/{id}/trams:
+    get:
+      tags:
+        - station
+      summary: Dohvaća listu tramvaja koji prolaze danom stanicom.
+      description: Vraća listu tramvaja koji prolaze stanicom s danim ID-em.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID stanice
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        default:
+          description: Default error sample response
+  /trams/{id}/stations:
+    get:
+      tags:
+        - tram
+      summary: Dohvaća listu stanica kroz koje prolazi dani tramvaj.
+      description: Vraća listu stanica kroz koje prolazi tramvaj s danim ID-em.
+      operationId: ''
+      parameters:
+        - name: id
+          in: path
+          description: ID tramvaja
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                Lista stanica kojima tramvaj prolazi:
+                  value: |-
+                    {
+                      "status": "OK",
+                      "message": "Fetched station data for the tram",
+                      "response": {
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        "name": "Stops for tram 13",
+                        "numberOfItems": 7,
+                        "itemListElement": [
+                          {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "item": {
+                              "@type": "BusStop",
+                              "name": "Ivanićgradska - jug"
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "item": {
+                              "@type": "BusStop",
+                              "name": "Ivanićgradska - sjever"
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "item": {
+                              "@type": "BusStop",
+                              "name": "Kruge - jug"
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 4,
+                            "item": {
+                              "@type": "BusStop",
+                              "name": "Kruge - sjever"
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 5,
+                            "item": {
+                              "@type": "BusStop",
+                              "name": "Kvaternikov trg ulaz/izlaz - istok"
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 6,
+                            "item": {
+                              "@type": "BusStop",
+                              "name": "Lisinski - jug"
+                            }
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 7,
+                            "item": {
+                              "@type": "BusStop",
+                              "name": "Lisinski - sjever"
+                            }
+                          }
+                        ]
+                      }
+                    }
+        default:
+          description: Default error sample response
+components:
+  schemas:
+    CreateTramRequest:
+      type: object
+      properties:
+        lineID:
+          type: integer
+          example: 4
+        route:
+          type: string
+          example: ZAPADNI KOLODVOR - BORONGAJ
+      example:
+        lineID: 77
+        route: VRLO - KUL
+    UpdateTramRequest:
+      type: object
+      properties:
+        lineID:
+          type: integer
+          example: 4
+        route:
+          type: string
+          example: ZAPADNI KOLODVOR - BORONGAJ
+      example:
+        lineID: 99
+        route: VRLO - Dobro

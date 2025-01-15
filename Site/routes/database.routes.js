@@ -12,7 +12,8 @@ const dbConfig = {
 };
 
 router.get('/', function(req, res) {
-    res.render('pages/database');
+    const userName = req.oidc.user?.name || null;
+    res.render('pages/database', {userName});
 });
 
 router.get('/api/database', async function(req, resp) {
